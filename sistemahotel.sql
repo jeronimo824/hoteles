@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2022 a las 07:14:29
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 26-07-2023 a las 21:35:27
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `cart` (
   `idv` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `idprd` int(11) NOT NULL,
-  `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(250) NOT NULL,
   `price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -44,7 +44,7 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `categorias` (
   `idcat` int(11) NOT NULL,
-  `nomcat` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `nomcat` varchar(100) NOT NULL,
   `fere` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -64,12 +64,12 @@ INSERT INTO `categorias` (`idcat`, `nomcat`, `fere`) VALUES
 
 CREATE TABLE `clientes` (
   `iddn` int(11) NOT NULL,
-  `dnic` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `numc` char(14) COLLATE utf8_unicode_ci NOT NULL,
-  `nomc` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `apec` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `corrc` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `estac` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `dnic` varchar(35) NOT NULL,
+  `numc` char(14) NOT NULL,
+  `nomc` varchar(35) NOT NULL,
+  `apec` varchar(35) NOT NULL,
+  `corrc` varchar(35) NOT NULL,
+  `estac` char(1) NOT NULL,
   `fere` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -93,12 +93,12 @@ INSERT INTO `clientes` (`iddn`, `dnic`, `numc`, `nomc`, `apec`, `corrc`, `estac`
 
 CREATE TABLE `habitaciones` (
   `idhab` int(11) NOT NULL,
-  `numiha` char(3) COLLATE utf8_unicode_ci NOT NULL,
-  `detaha` text COLLATE utf8_unicode_ci NOT NULL,
+  `numiha` char(3) NOT NULL,
+  `detaha` text NOT NULL,
   `precha` decimal(10,2) NOT NULL,
   `idps` int(11) NOT NULL,
   `idhc` int(11) NOT NULL,
-  `estadha` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `estadha` char(1) NOT NULL,
   `fere` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -107,11 +107,11 @@ CREATE TABLE `habitaciones` (
 --
 
 INSERT INTO `habitaciones` (`idhab`, `numiha`, `detaha`, `precha`, `idps`, `idhc`, `estadha`, `fere`) VALUES
-(1, '101', 'TV + CABLE + BAÑO', '50.00', 1, 2, '1', '2022-10-07 04:53:21'),
-(2, '102', 'TV + CABLE + BAÑO + WIFI', '80.00', 1, 1, '1', '2022-10-07 00:59:13'),
-(3, '201', 'TV + CABLE + WIFI + BAÑO', '150.00', 2, 3, '1', '2022-10-06 18:37:45'),
+(1, '101', 'ESTANDAR', '50.00', 1, 2, '2', '2023-07-26 17:37:57'),
+(2, '102', 'ESTANDAR', '80.00', 1, 1, '1', '2023-07-26 17:38:13'),
+(3, '201', 'JUNIOR', '150.00', 2, 3, '1', '2023-07-26 17:38:53'),
 (6, '301', 'TV+CABLE', '90.00', 3, 2, '1', '2022-09-28 21:59:02'),
-(7, '404', 'TV+WIFI+CAMA', '50.00', 6, 6, '1', '2022-10-07 04:49:23');
+(8, '103', 'SUITE', '50.00', 1, 2, '2', '2023-07-26 17:39:42');
 
 -- --------------------------------------------------------
 
@@ -121,8 +121,8 @@ INSERT INTO `habitaciones` (`idhab`, `numiha`, `detaha`, `precha`, `idps`, `idhc
 
 CREATE TABLE `hcate` (
   `idhc` int(11) NOT NULL,
-  `nomhc` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `estahc` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `nomhc` varchar(35) NOT NULL,
+  `estahc` char(1) NOT NULL,
   `fere` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -132,9 +132,29 @@ CREATE TABLE `hcate` (
 
 INSERT INTO `hcate` (`idhc`, `nomhc`, `estahc`, `fere`) VALUES
 (1, 'Doble', '1', '2022-09-28 13:22:29'),
-(2, 'Individual', '1', '2022-09-28 13:22:43'),
-(3, 'Matrimonial', '1', '2022-09-28 13:22:57'),
-(6, 'Individual ejemplo', '1', '2022-10-07 04:48:48');
+(2, 'Sencilla', '1', '2023-07-26 16:18:51'),
+(3, 'Triple', '1', '2023-07-26 16:19:23');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `hotel`
+--
+
+CREATE TABLE `hotel` (
+  `nombre` varchar(25) NOT NULL,
+  `ciudad` varchar(25) NOT NULL,
+  `direccion` varchar(25) NOT NULL,
+  `nit` int(11) NOT NULL,
+  `n_habitaciones` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `hotel`
+--
+
+INSERT INTO `hotel` (`nombre`, `ciudad`, `direccion`, `nit`, `n_habitaciones`) VALUES
+('Decameron', 'Santa marta', 'calle 40', 125648, 5);
 
 -- --------------------------------------------------------
 
@@ -146,12 +166,12 @@ CREATE TABLE `orders` (
   `idord` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `user_cli` int(11) NOT NULL,
-  `method` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `total_products` text COLLATE utf8_unicode_ci NOT NULL,
+  `method` varchar(50) NOT NULL,
+  `total_products` text NOT NULL,
   `total_price` decimal(10,2) NOT NULL,
-  `placed_on` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `payment_status` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `tipc` varchar(25) COLLATE utf8_unicode_ci NOT NULL
+  `placed_on` varchar(50) NOT NULL,
+  `payment_status` varchar(20) NOT NULL,
+  `tipc` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -171,8 +191,8 @@ INSERT INTO `orders` (`idord`, `user_id`, `user_cli`, `method`, `total_products`
 
 CREATE TABLE `pisos` (
   `idps` int(11) NOT NULL,
-  `nompis` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `estp` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `nompis` varchar(30) NOT NULL,
+  `estp` char(1) NOT NULL,
   `fere` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -183,8 +203,7 @@ CREATE TABLE `pisos` (
 INSERT INTO `pisos` (`idps`, `nompis`, `estp`, `fere`) VALUES
 (1, 'Primer piso', '1', '2022-09-28 12:57:27'),
 (2, 'Segundo piso', '1', '2022-09-28 12:57:50'),
-(3, 'Tercer piso', '1', '2022-09-28 12:58:06'),
-(6, 'Piso ejemplo', '1', '2022-10-07 04:48:15');
+(3, 'Tercer piso', '1', '2022-09-28 12:58:06');
 
 -- --------------------------------------------------------
 
@@ -194,15 +213,15 @@ INSERT INTO `pisos` (`idps`, `nompis`, `estp`, `fere`) VALUES
 
 CREATE TABLE `productos` (
   `idprd` int(11) NOT NULL,
-  `nomprd` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `numprd` char(14) COLLATE utf8_unicode_ci NOT NULL,
-  `detprd` text COLLATE utf8_unicode_ci NOT NULL,
+  `nomprd` varchar(150) NOT NULL,
+  `numprd` char(14) NOT NULL,
+  `detprd` text NOT NULL,
   `preprd` decimal(10,2) NOT NULL,
-  `stckprd` char(3) COLLATE utf8_unicode_ci NOT NULL,
-  `staprd` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `stckprd` char(3) NOT NULL,
+  `staprd` char(1) NOT NULL,
   `fere` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `idcat` int(11) NOT NULL,
-  `foto` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `foto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -227,9 +246,17 @@ CREATE TABLE `reservar` (
   `feentra` date NOT NULL,
   `fesal` date NOT NULL,
   `adel` decimal(10,2) NOT NULL,
-  `state` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `observac` text COLLATE utf8_unicode_ci NOT NULL
+  `state` char(1) NOT NULL,
+  `observac` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `reservar`
+--
+
+INSERT INTO `reservar` (`idrese`, `idhab`, `iddn`, `feentra`, `fesal`, `adel`, `state`, `observac`) VALUES
+(3, 1, 5, '2023-07-26', '2023-07-31', '50.00', '1', ''),
+(4, 8, 3, '2023-07-26', '2023-07-29', '50.00', '1', '');
 
 -- --------------------------------------------------------
 
@@ -242,9 +269,9 @@ CREATE TABLE `rs_history` (
   `idhab` int(11) NOT NULL,
   `idrese` int(11) NOT NULL,
   `iddn` int(11) NOT NULL,
-  `nomc` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `numiha` char(14) COLLATE utf8_unicode_ci NOT NULL,
-  `detaha` text COLLATE utf8_unicode_ci NOT NULL,
+  `nomc` varchar(35) NOT NULL,
+  `numiha` char(14) NOT NULL,
+  `detaha` text NOT NULL,
   `precha` decimal(10,2) NOT NULL,
   `fere` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -265,11 +292,11 @@ INSERT INTO `rs_history` (`idrsh`, `idhab`, `idrese`, `iddn`, `nomc`, `numiha`, 
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `correo` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `usuario` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `contra` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `rol` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `correo` varchar(35) NOT NULL,
+  `usuario` varchar(25) NOT NULL,
+  `contra` varchar(255) NOT NULL,
+  `rol` char(1) NOT NULL,
   `fere` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -278,7 +305,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `usuario`, `contra`, `rol`, `fere`) VALUES
-(1, 'Administrador', 'admin@gmail.com', 'admin01', 'b0baee9d279d34fa1dfd71aadb908c3f', '1', '2022-10-07 02:16:22');
+(1, 'Administrador', 'admin@gmail.com', 'admin01', 'b0baee9d279d34fa1dfd71aadb908c3f', '1', '2022-10-07 02:16:22'),
+(3, 'admin2', 'admin2@gmail.com', 'admin2', '827ccb0eea8a706c4c34a16891f84e7b', '1', '2023-07-26 15:03:05');
 
 --
 -- Índices para tablas volcadas
@@ -317,6 +345,12 @@ ALTER TABLE `habitaciones`
 --
 ALTER TABLE `hcate`
   ADD PRIMARY KEY (`idhc`);
+
+--
+-- Indices de la tabla `hotel`
+--
+ALTER TABLE `hotel`
+  ADD PRIMARY KEY (`nit`);
 
 --
 -- Indices de la tabla `orders`
@@ -384,13 +418,19 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
-  MODIFY `idhab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idhab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `hcate`
 --
 ALTER TABLE `hcate`
   MODIFY `idhc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `hotel`
+--
+ALTER TABLE `hotel`
+  MODIFY `nit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125649;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
@@ -414,7 +454,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `reservar`
 --
 ALTER TABLE `reservar`
-  MODIFY `idrese` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idrese` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `rs_history`
@@ -426,7 +466,7 @@ ALTER TABLE `rs_history`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
