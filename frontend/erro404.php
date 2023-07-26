@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Meta -->
-        <meta name="description" content="Hotel MI CIELO">
+        <meta name="description" content="Hotel DECAMERON">
         <meta name="author" content="Hotel">
         <link rel="shortcut icon" href="../backend/img/ico.png" />
 
         <!-- Title -->
-        <title>Hotel "MI CIELO" | 404</title>
+        <title>Hotel "DECAMERON" | 404</title>
         
 
         <!-- Font for coming soon page -->

@@ -15,11 +15,11 @@ class PDF extends FPDF
     $this->setY(12);
     $this->setX(10);
     
-    $this->Image('../../backend/img/rt.png',25,5,33);
+    $this->Image('../../backend/img/decameron.png',25,5,33);
     
     $this->SetFont('times', 'B', 13);
     
-    $this->Text(75, 15, utf8_decode('NOMBRE EMPRESA Hotel MI CIELO'));
+    $this->Text(75, 15, utf8_decode('NOMBRE EMPRESA Hotel DECAMERON'));
     $this->Text(77, 21, utf8_decode('6ª av. Los Angeles, California'));
     $this->Text(88,27, utf8_decode('Tel: 7785-8223'));
     $this->Text(78,33, utf8_decode('hotelmicielo@gmail.com'));

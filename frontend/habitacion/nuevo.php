@@ -13,12 +13,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- Meta -->
-		<meta name="description" content="Hotel MI CIELO">
+		<meta name="description" content="Hotel DECAMERON">
 		<meta name="author" content="Hotel">
 		<link rel="shortcut icon" href="../../backend/img/ico.png" />
 
 		<!-- Title -->
-		<title>Nueva habitación | Hotel "MI CIELO"</title>
+		<title>Nueva habitación | Hotel "DECAMERON"</title>
 
 
 		<!-- *************
@@ -55,7 +55,7 @@
 				<!-- Sidebar brand start  -->
 				<div class="sidebar-brand">
 					<a href="../administrador/escritorio.php" class="logo">
-						<img src="../../backend/img/rt.png" alt="Hotel mi cielo" />
+						<img src="../../backend/img/decameron.png" alt="Hotel DECAMERON" />
 					</a>
 				</div>
 				<!-- Sidebar brand end  -->
@@ -101,27 +101,6 @@
 							</li>
 
 
-							<li class="sidebar-dropdown">
-								<a href="#">
-									<i class="icon-archive"></i>
-									<span class="menu-text">Tienda</span>
-								</a>
-								<div class="sidebar-submenu">
-									<ul>
-										<li>
-											<a href="../venta/mostrar.php">Vender</a>
-										</li>
-										<li>
-											<a href="../productos/mostrar.php">Productos</a>
-										</li>
-										<li>
-											<a href="../categorias/mostrar.php">Categorias</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-
 							<li class="sidebar-dropdown active">
 								<a href="#">
 									<i class="icon-settings1"></i>
@@ -143,25 +122,7 @@
 								</div>
 							</li>
 
-							<li class="sidebar-dropdown">
-								<a href="#">
-									<i class="icon-bar-chart"></i>
-									<span class="menu-text">Reportes</span>
-								</a>
-								<div class="sidebar-submenu">
-									<ul>
-										<li>
-											<a href="../r_recepcion/mostrar.php">Recepción</a>
-										</li>
-										<li>
-											<a href="../r_productos/mostrar.php">Productos</a>
-										</li>
-										
-										
-									</ul>
-								</div>
-							</li>
-
+							
 
 							<li class="sidebar-dropdown">
 								<a href="#">
@@ -237,7 +198,7 @@
 								<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
 									<span class="user-name"><?php echo $_SESSION['nombre']; ?></span>
 									<span class="avatar">
-										<img src="../../backend/img/user24.png" alt="avatar">
+										<img src="../../backend/img/user.jpg" alt="avatar">
 										<span class="status busy"></span>
 									</span>
 								</a>
@@ -245,7 +206,7 @@
 									<div class="header-profile-actions">
 										<div class="header-user-profile">
 											<div class="header-user">
-												<img src="../../backend/img/user24.png" alt="Admin Template">
+												<img src="../../backend/img/user.jpg" alt="Admin Template">
 											</div>
 											<h5>Julie Sweet</h5>
 											<p>Admin</p>
@@ -326,7 +287,7 @@
 										<div class="row gutters">
 											<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 												<div class="form-group">
-													<textarea class="form-control" name="hdet" id="message" placeholder="Detalle de la habitación"  rows="3"></textarea>
+													<textarea class="form-control" name="hdet" id="message" placeholder="Tipo de habitación"  rows="3"></textarea>
 													                  
 												</div>
 											</div>

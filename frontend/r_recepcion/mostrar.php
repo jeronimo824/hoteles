@@ -13,12 +13,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- Meta -->
-		<meta name="description" content="Hotel MI CIELO">
+		<meta name="description" content="Hotel DECAMERON">
 		<meta name="author" content="Hotel">
 		<link rel="shortcut icon" href="../../backend/img/ico.png" />
 
 		<!-- Title -->
-		<title>Reporte recepción | Hotel "MI CIELO"</title>
+		<title>Reporte recepción | Hotel "DECAMERON"</title>
 
 
 		<!-- *************
@@ -61,7 +61,7 @@
 				<!-- Sidebar brand start  -->
 				<div class="sidebar-brand">
 					<a href="../administrador/escritorio.php" class="logo">
-						<img src="../../backend/img/rt.png" alt="Hotel mi cielo" />
+						<img src="../../backend/img/decameron.png" alt="Hotel DECAMERON" />
 					</a>
 				</div>
 				<!-- Sidebar brand end  -->
@@ -107,26 +107,6 @@
 							</li>
 
 
-							<li class="sidebar-dropdown">
-								<a href="#">
-									<i class="icon-archive"></i>
-									<span class="menu-text">Tienda</span>
-								</a>
-								<div class="sidebar-submenu">
-									<ul>
-										<li>
-											<a href="../venta/mostrar.php">Vender</a>
-										</li>
-										<li>
-											<a href="../productos/mostrar.php">Productos</a>
-										</li>
-										<li>
-											<a href="../categorias/mostrar.php">Categorias</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
 
 							<li class="sidebar-dropdown">
 								<a href="#">
@@ -149,24 +129,7 @@
 								</div>
 							</li>
 
-							<li class="sidebar-dropdown active">
-								<a href="#">
-									<i class="icon-bar-chart"></i>
-									<span class="menu-text">Reportes</span>
-								</a>
-								<div class="sidebar-submenu">
-									<ul>
-										<li>
-											<a href="../r_recepcion/mostrar.php" class="current-page">Recepción</a>
-										</li>
-										<li>
-											<a href="../r_productos/mostrar.php">Productos</a>
-										</li>
-										
-										
-									</ul>
-								</div>
-							</li>
+							
 
 
 							<li class="sidebar-dropdown">
@@ -243,7 +206,7 @@
 								<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
 									<span class="user-name"><?php echo $_SESSION['nombre']; ?></span>
 									<span class="avatar">
-										<img src="../../backend/img/user24.png" alt="avatar">
+										<img src="../../backend/img/user.jpg" alt="avatar">
 										<span class="status busy"></span>
 									</span>
 								</a>
@@ -251,7 +214,7 @@
 									<div class="header-profile-actions">
 										<div class="header-user-profile">
 											<div class="header-user">
-												<img src="../../backend/img/user24.png" alt="Admin Template">
+												<img src="../../backend/img/user.jpg" alt="Admin Template">
 											</div>
 											<h5>Julie Sweet</h5>
 											<p>Admin</p>
@@ -270,76 +233,7 @@
 
 				
 				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">Home</li>
-						<li class="breadcrumb-item active">Reportes recepción</li>
-					</ol>
-				</div>
-				<!-- Page header end -->
-				<!-- Main container start -->
-
-				<div class="main-container">
-					<div class="row gutters">
-						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-							<div class="table-container">
-								<div class="t-header">Reporte recepción</div>
-								<div class="documents-header">
-												
-												<button class="btn btn-primary btn-lg" onclick="location.href='plantilla.php'">PDF</button>
-												<div id="notes"></div>
-												
-											</div>
-								<div class="table-responsive">
-									
-									 	<?php 
-require_once('../../backend/config/Conexion.php');
-$sentencia = $connect->prepare("SELECT * FROM rs_history ORDER BY idrsh DESC;");
- $sentencia->execute();
-$data =  array();
-if($sentencia){
-  while($r = $sentencia->fetchObject()){
-    $data[] = $r;
-  }
-}
-									 ?>
-									 <?php if(count($data)>0):?>
-									<table id="basicExample" class="table custom-table">
-										<thead>
-											<tr>
-												<th>Cliente</th>
-												<th>Número de la habitación</th>
-												<th>Detalle de la habitación</th>
-												<th>Precio de la habitación</th>
-												
-											</tr>
-										</thead>
-										
-										<tbody>
-											<?php foreach($data as $d):?>
-											<tr>
-												
-												<td><?php echo $d->nomc ?></td>
-												<td><?php echo $d->numiha ?></td>
-												<td><?php echo $d->detaha ?></td>
-												<td>S/.<?php echo $d->precha ?></td>		
-											</tr>
-											<?php endforeach; ?>
-										</tbody>
-										
-									</table>
-									<?php else:?>
-    <p class="alert alert-warning">No hay registros</p>
-    <?php endif; ?>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 				
-				<!-- Main container end -->
-
-			</div>
 			<!-- Page content end -->
 
 		</div>
